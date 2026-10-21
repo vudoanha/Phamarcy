@@ -1,0 +1,58 @@
+export const products = [
+  {
+    id: 1,
+    name: 'Paracetamol 500mg',
+    category: 'Thuốc',
+    stocked: true,
+    price: 15000,
+  },
+  {
+    id: 2,
+    name: 'Vitamin C',
+    category: 'Vitamin',
+    stocked: true,
+    price: 35000,
+  },
+  {
+    id: 3,
+    name: 'Khẩu trang y tế',
+    category: 'Vật tư y tế',
+    stocked: false,
+    price: 25000,
+  },
+  {
+    id: 4,
+    name: 'Nước muối sinh lý',
+    category: 'Vật tư y tế',
+    stocked: true,
+    price: 10000,
+  },
+  {
+    id: 5,
+    name: 'Vitamin B1',
+    category: 'Vitamin',
+    stocked: false,
+    price: 20000,
+  },
+  {
+    id: 6,
+    name: 'Nhiệt kế điện tử',
+    category: 'Thiết bị y tế',
+    stocked: true,
+    price: 120000,
+  },
+  {
+    id: 7,
+    name: 'Ibuprofen 200mg',
+    category: 'Thuốc',
+    stocked: true,
+    price: 30000,
+  },
+  {
+    id: 8,
+    name: 'Vitamin D3',
+    category: 'Vitamin',
+    stocked: true,
+    price: 45000,
+  },
+];
