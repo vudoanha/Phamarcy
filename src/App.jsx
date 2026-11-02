@@ -36,7 +36,8 @@
     const {
       products,
       loadingProducts,
-      productsError
+      productsError,
+      retryLoading
     } = useProducts();
 
     // Tính danh sách sản phẩm phù hợp
@@ -219,23 +220,36 @@
             <span className="count">
               {filteredProducts.length} sản phẩm
             </span>
-          </div>
-          {loadingProducts ? (
+          </div>          
+          {loadingProducts && products.length === 0 && (
             <p>Đang tải sản phẩm...</p>
-          ) : productsError ? (
-            <div>
-              <p>Lỗi: {productsError}</p>
-              <button onClick={() => window.location.reload()}>
-                  Thử tải lại trang
+          )}
+
+          {productsError && (
+            <div className="product-error">
+              <p>Lỗi tải sản phẩm: {productsError}</p>
+
+              <button
+                type="button"
+                onClick={retryLoading}
+                disabled={loadingProducts}
+              >
+                {loadingProducts ? 'Đang tải...' : 'Thử tải lại'}
               </button>
             </div>
-          ) : (
-            <>
-            <ProductTable
-              products={sortedProducts}
-              onAddToCart={handleAddToCart}
-              onViewDetails={setSelectedProduct}
-            />
+          )}
+            {!loadingProducts &&
+               !productsError &&
+               products.length === 0 && (
+                <p>Không có sản phẩm nào.</p>
+            )}
+              {products.length > 0 && (
+                <ProductTable
+                  products={sortedProducts}
+                  onAddToCart={handleAddToCart}
+                  onViewDetails={setSelectedProduct}
+                />
+              )}
           {selectedProduct && (
             <ProductDetail
               product={selectedProduct}
@@ -306,8 +320,6 @@
               </button>
             </section>
           )}
-          </>
-        )}
         </section>
         <footer className="footer">
           <p>

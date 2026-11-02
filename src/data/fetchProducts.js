@@ -17,7 +17,7 @@ export async function fetchProducts(signal) {
     category: product.category,
     stocked: product.stock > 0,
     description: product.description,
-    thumbnail: product.thumbnail,
+    thumbnail: `/images/products/${product.id}.png`,
     brand: product.brand,
     stock: product.stock,
     rating: product.rating
